@@ -1,0 +1,16 @@
+<div>
+  <h1 id="log">LOGIN</h1>
+  <div></div>
+
+  <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" name="email"
+    [(ngModel)]="email" />
+
+  <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+    [(ngModel)]="password" />
+
+  <div><button class="btn btn-success" (click)="checkLogin()">LOGIN</button></div>
+</div>
+<div>
+  {{ message }}
+  
+</div>

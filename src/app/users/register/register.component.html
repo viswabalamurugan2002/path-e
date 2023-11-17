@@ -1,0 +1,36 @@
+<div id="body">
+<div>
+  <app-header></app-header>
+</div>
+<div id="formi">
+  <h1 id="sign">SIGN-UP</h1>
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control mb-3" id="name" placeholder="name@example.com" name="name"
+      [(ngModel)]="name" />
+    <label for="name">NAME </label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control mb-3" placeholder="name@example.com" name="email" [(ngModel)]="email" />
+    <label for="email">EMAIL ADDRESS</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control mb-3" placeholder="Password" name="password" [(ngModel)]="password" />
+    <label for="password">PASSWORD</label>
+  </div>
+  <div class="form-floating">
+    <input type="number" class="form-control mb-3" id="phone" placeholder="Phone" name="phone" [(ngModel)]="phone" />
+    <label for="phone">PHONE-NUMBER</label>
+  </div>
+  <div>
+    <input type="checkbox" style="margin-left: 50px" /><a href="" style="color: #000; text-decoration: none">
+      I accecpt the terms and condition</a>
+  </div>
+
+  <div><button class="btn btn-success" (click)="registerUser()" style="margin-left:140px;">signup</button></div>
+  <p style="margin-left: 80px">
+    <a style="color: rgb(5, 12, 62)" (click)="login() ">ALREADY I HAVE A ACCOUNT</a>
+  
+</div>
+
+</div>
+<div><app-footer></app-footer></div>
