@@ -28,7 +28,7 @@ export class RegisterComponent {
         email : this.email,
         mobile : this.phone
       }
-      this.apiService.insertUser(user).subscribe((responce)=>{
+      this.apiService.createData("https://retoolapi.dev/pQclyz/pathEUsers",user).subscribe((responce)=>{
         console.log("response", responce);
         alert('Registered Successfully');
       

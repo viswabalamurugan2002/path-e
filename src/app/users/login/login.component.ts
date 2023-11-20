@@ -21,7 +21,7 @@ export class LoginComponent {
     console.log(this.users);
     this.message = "";
     if(this.email != "" && this.password != ""){
-      this.apiService.getUsers().subscribe(
+      this.apiService.getData("https://retoolapi.dev/pQclyz/pathEUsers").subscribe(
         (data : any) => {
           this.users = data;
           console.log(data);
