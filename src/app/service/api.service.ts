@@ -30,10 +30,10 @@ export class ApiService {
   }
 
   insertUser(user : any){
-    return this.http.post('https://retoolapi.dev/pQclyz/pathEUsers', user);
+    return this.http.post('https://retoolapi.dev/8jwHfY/users', user);
   }
   deleteuser(id:any){
     
-    return this.http.delete('https://retoolapi.dev/pQclyz/pathEUsers/'+id)
+    return this.http.delete('https://retoolapi.dev/8jwHfY/users/'+id)
   }
 }
