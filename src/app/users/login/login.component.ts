@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,23 +15,12 @@ export class LoginComponent {
   message: String = '';
   users : any[] = [];
   apiUrl : string = 'https://retoolapi.dev/pQclyz/pathEUsers';
+  
 
   constructor(private apiService : ApiService, private routs : Router){
 
   }
-  checkLogin() {
-    var viswa:any=[];
-    var rsj:any=""
-    rsj=String(crypto.getRandomValues(new Uint32Array(1))[0])
-    console.log(rsj)
-    for(let i=0;i<6;i++){
-      viswa[i]=rsj[i]
-     
-    }
-        
-    console.log(viswa);
-    
-    
+  checkLogin() { 
     console.log(this.users);
     this.message = "";
     let url = this.apiUrl;

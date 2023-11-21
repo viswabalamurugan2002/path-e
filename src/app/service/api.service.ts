@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   getUsers(){
-    return this.http.get('https://retoolapi.dev/pQclyz/pathEUsers');
+    return this.http.get('https://retoolapi.dev/8jwHfY/users');
   }
 
   getData(url: string){
