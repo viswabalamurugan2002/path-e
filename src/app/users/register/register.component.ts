@@ -31,6 +31,7 @@ export class RegisterComponent {
       this.apiService.createData("https://retoolapi.dev/pQclyz/pathEUsers",user).subscribe((responce)=>{
         console.log("response", responce);
         alert('Registered Successfully');
+        this.kevin.navigate(['home'])
       
       });
     }

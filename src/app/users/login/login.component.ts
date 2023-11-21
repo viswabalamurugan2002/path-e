@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
@@ -12,16 +13,30 @@ export class LoginComponent {
   password: String = '';
   message: String = '';
   users : any[] = [];
+  apiUrl : string = 'https://retoolapi.dev/pQclyz/pathEUsers';
 
   constructor(private apiService : ApiService, private routs : Router){
 
   }
   checkLogin() {
+    var viswa:any=[];
+    var rsj:any=""
+    rsj=String(crypto.getRandomValues(new Uint32Array(1))[0])
+    console.log(rsj)
+    for(let i=0;i<6;i++){
+      viswa[i]=rsj[i]
+     
+    }
+        
+    console.log(viswa);
+    
     
     console.log(this.users);
     this.message = "";
+    let url = this.apiUrl;
     if(this.email != "" && this.password != ""){
-      this.apiService.getData("https://retoolapi.dev/pQclyz/pathEUsers").subscribe(
+      url += "?email=" + this.email + "&pswd=" + this.password;
+      this.apiService.getData(url).subscribe(
         (data : any) => {
           this.users = data;
           console.log(data);
@@ -29,7 +44,8 @@ export class LoginComponent {
           for(let user of this.users){
             if(user.email == this.email && user.pswd == this.password){
               this.message = "Email and Password Matched...";
-              sessionStorage.setItem('email',user.email)
+              sessionStorage.setItem('email',user.email);
+              this.redirectHome();
               break;
             }
           }
@@ -43,7 +59,9 @@ export class LoginComponent {
       this.message = "Values Kodu thala...";
     }
   }
-  redirecthome(){
-    this.routs.navigate(['/register'])
+  redirectHome(){
+    this.routs.navigate(['/home']);
   }
+    
 }
+

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -6,13 +7,27 @@ import { ApiService } from 'src/app/service/api.service';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss']
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit{
   email:any=""
   users:any=[]
   id:any=""
-  constructor(private apiservice:ApiService){
+  constructor(private apiservice:ApiService, private router: Router){
 
   }
+
+  ngOnInit(): void {
+    this.removeSession();
+  }
+
+  redirectToLogin(){
+    this.router.navigate(['/login']);
+  }
+
+  removeSession(){
+    sessionStorage.removeItem('email');
+  }
+
+
   logout(){
     this.apiservice.getUsers().subscribe(
      (data : any) => {

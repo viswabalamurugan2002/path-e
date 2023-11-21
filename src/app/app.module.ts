@@ -26,14 +26,16 @@ import { HomeComponent } from './users/home/home.component';
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
 
   ],
   providers: [],
