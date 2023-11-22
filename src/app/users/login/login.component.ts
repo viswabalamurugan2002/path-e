@@ -20,8 +20,8 @@ export class LoginComponent {
   constructor(private apiService : ApiService, private routs : Router){
 
   }
-  checkLogin() { 
-    console.log(this.users);
+  login() { 
+   
     this.message = "";
     let url = this.apiUrl;
     if(this.email != "" && this.password != ""){
@@ -29,21 +29,25 @@ export class LoginComponent {
       this.apiService.getData(url).subscribe(
         (data : any) => {
           this.users = data;
-          console.log(data);
+        
           
 
           for(let user of this.users){
             if(user.email == this.email && user.pswd == this.password){
-              this.message = "Email and Password Matched...";
+              alert("loginSuccess")
               sessionStorage.setItem('email',user.email);
-              this.redirectHome();
-              break;
+              this.routs.navigate(['/home'])
+             
             }
+           
+            }
+            if(this.users.length==0){
+              alert("Invalid username password")
+              
+            }
+
           }
-          if(this.message == ""){
-            this.message = "Invalid Email or password";
-          }
-        }
+         
       );
       
     }else{
@@ -52,6 +56,9 @@ export class LoginComponent {
   }
   redirectHome(){
     this.routs.navigate(['/home']);
+  }
+  newuser(){
+    this.routs.navigate([''])
   }
     
 }

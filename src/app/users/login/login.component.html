@@ -1,6 +1,6 @@
 <div class="row" style="height: 10%;"><app-header></app-header></div>
-<div class="row" style="height: 80%;">
-  <div id="formi" class="form-control mt-5">
+<div class="row" style="height: 80%;" id="body">
+  <div id="formi" class="form-control ">
     <h1 id="log" class="col mt-6">LOGIN</h1>
    
   
@@ -10,11 +10,11 @@
     <input type="password" class="form-control mt-5" id="password" placeholder="Password" name="password"
       [(ngModel)]="password" />
   
-    <div><button class="btn btn-success mt-5" (click)="checkLogin()">LOGIN</button></div>
+    <div class="row">
+      <div class="col"><button class="btn btn-success mt-4 col-5 " (click)="login()">LOGIN</button></div>
+      <div class="col"> <p class="mt-5 ms-4" (click)="newuser()" type="button">New User?</p></div>
+     </div>
   </div>
-  <div>
-    {{ message }}
-    
-  </div></div>
+  </div>
 <div class="row" style="height: 10%;"><app-footer></app-footer></div>
 
