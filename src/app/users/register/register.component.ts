@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { __core_private_testing_placeholder__ } from '@angular/core/testing';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import '../../../assets/js/smtp.js'
 declare let Email:any;
@@ -23,8 +23,9 @@ export class RegisterComponent {
   users : any[] = [];
   id: any;
 otp1: String="";
+  
 
-  constructor(private apiService : ApiService,private kevin: Router){
+  constructor(private apiService : ApiService,private router: Router){
 
   }
   registerUser(){
@@ -47,19 +48,15 @@ otp1: String="";
       this.apiService.createData("https://retoolapi.dev/8jwHfY/users",user).subscribe((responce)=>{
         console.log(responce)
         if(responce!=null){
-        
-      
+          console.log(responce);
           Email.send({
             SecureToken :'ca5ecfdb-9fb8-4902-b858-d05103f6629d',
-            
-            To :String( this.email),
+            To :this.email,
             From : "viswabalamurugan2002@gmail.com",
             Subject : "This is the subject",
             Body : "Dear User We are Send Information From PATH-E And Your OTP is:"+this.otp
         }).then((message:any) => {
           if(message=="OK"){
-           
-            
             alert("OTP Sent Successfully Check Your Mail");
             var formElement = <HTMLFormElement>document.getElementById('otpdiv');
         formElement.style.display='block';
@@ -91,6 +88,8 @@ else{
    
       if(this.otp==this.otp ){
         alert("Signup Success")
+        this.router.navigate(['/login'])
+      
 
       }else{
         alert("Wrong Otp Please Try Again")
@@ -125,7 +124,7 @@ else{
 
   }
   login(){
-    this.kevin.navigate(['login'])
+    this.router.navigate(['login'])
 
 
 

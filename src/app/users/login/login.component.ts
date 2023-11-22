@@ -30,6 +30,7 @@ export class LoginComponent {
         (data : any) => {
           this.users = data;
           console.log(data);
+          
 
           for(let user of this.users){
             if(user.email == this.email && user.pswd == this.password){
