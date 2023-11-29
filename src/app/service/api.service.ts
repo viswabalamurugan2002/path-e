@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { apiurl } from '../commen/apiurl';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   getUsers(){
-    return this.http.get('https://retoolapi.dev/8jwHfY/users');
+    return this.http.get(apiurl);
   }
 
   getData(url: string){
@@ -30,10 +31,10 @@ export class ApiService {
   }
 
   insertUser(user : any){
-    return this.http.post('https://retoolapi.dev/8jwHfY/users', user);
+    return this.http.post(apiurl, user);
   }
   deleteuser(id:any){
     
-    return this.http.delete('https://retoolapi.dev/8jwHfY/users/'+id)
+    return this.http.delete(apiurl+"/"+id)
   }
 }

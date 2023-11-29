@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
+import { apiurl } from 'src/app/commen/apiurl';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent {
   password: String = '';
   message: String = '';
   users : any[] = [];
-  apiUrl : string = 'https://retoolapi.dev/8jwHfY/users';
+  apiUrl : string = apiurl;
   
 
   constructor(private apiService : ApiService, private routs : Router){

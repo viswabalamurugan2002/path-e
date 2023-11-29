@@ -14,11 +14,15 @@
     <label for="email">EMAIL ADDRESS</label>
   </div>
   <div class="form-floating">
-    <input type="text" class="form-control mb-3" placeholder="Password" name="password" [(ngModel)]="password" />
+    <input type="text" class="form-control mb-3" placeholder="Password" id="pass" name="password" [(ngModel)]="password" />
     <label for="password">PASSWORD</label>
   </div>
   <div class="form-floating">
-    <input type="number" class="form-control mb-3" id="phone" placeholder="Phone" name="phone" [(ngModel)]="phone" />
+    <input type="text" class="form-control mb-3" placeholder="Confirm Password" name="password" id="passc" [(ngModel)]="confirmpassword" (keyup)="cpass()" />
+    <label for="password">CONFIRM PASSWORD</label>
+  </div>
+  <div class="form-floating">
+    <input type="number" class="form-control mb-3" id="phone" placeholder="Phone number" name="phone" [(ngModel)]="phone"  />
     <label for="phone">PHONE-NUMBER</label>
   </div>
   <div>
@@ -26,9 +30,9 @@
       I accecpt the terms and condition</a>
   </div>
 
-  <div><button class="btn btn-success" (click)="registerUser()" style="margin-left:140px;">Register</button></div>
+  <div><button class="btn btn-success" (click)="registerUser()" id="regbtn" style="margin-left:140px;">Register</button></div>
   <p style="margin-left: 80px">
-    <a style="color: rgb(5, 12, 62)" (click)="login() ">ALREADY I HAVE A ACCOUNT</a>
+    <a style="color: rgb(5, 12, 62)" type="button" (click)="login() ">ALREADY I HAVE A ACCOUNT</a>
   
 </div>
 <div class="container"  id="otpdiv">
@@ -37,11 +41,11 @@
         <div class="row">
           <div class="col-sm-12 mt-5 bgWhite">
             <div class="title">
-              Verify OTP
+              VERIFY OTP
             </div>
             
             <form action="" class="col-5">
-              <input class="form-control" type="number" id="verifyotp"name="verifyotp" style="width: 300px;"  [(ngModel)]="verifyotp"  >
+              <input class="form-control" type="number" id="verifyotp"name="verifyotp" style="width: 350px;margin-left: 30px;"  [(ngModel)]="verifyotp"  >
               
             </form>
             <hr class="mt-4">
